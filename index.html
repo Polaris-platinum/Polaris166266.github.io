@@ -1,135 +1,235 @@
+<!DOCTYPE html><!-- 这是文档类型的声明 -->
 <html>
-
-<head>
-    <title>基于vue+elementui</title>
-    <!-- 引入样式 -->
-    <link rel="stylesheet" href="lib/elementui/theme-chalk/index.css" type="text/css">
-    <style>
-      /* 所有 */
-      #app{
-        width:100%; height:100%;
-      }
-
-      /* 头 */
-      .header {
-        color: rgba(255,255,255,0.75);
-        line-height: 60px;
-        background-color: #24292e;
-        text-align: center;
-      }
-      .header div{
-        display: inline;
-      }
-      .title{
-      }
-      .author{
-        float: right;
-      }
-      .author-img{
-        width: 20px;
-        height: 20px;
-      }
-
-      /* 内容区 */
-      .container{
-        min-height: 600px;
-        width:100%;
-        height: 100%
-      }
-
-      /* 左边内容区 */
-      .left {
-        color: #4b595f;
-        width: 200px;
-      }
-      .left ul{
-        height: 90%;
-      }
-
-      /* 右边内容区 */
-      .right{
-        min-width: 200px;
-      }
-      tbody{
-        font-size: 15px;
-        color: #4b595f;
-      }
-
-    </style>
+<head><!-- head标签中通常包含<mate>标签和<tilte>标签 -->
+    <meta http-equiv="Content-type" charset="utf-8"/><!-- 让浏览器正确显示网页内容以及设置编码格式 -->
+    <title>第一次测试</title><!-- 这是网页标题 -->
 </head>
-<body>
-<div id="app">
-  <el-container class="container">
-    <el-header class="header">
-      <div class="title">
-        <span>个人demo网站</span>
-      </div>
-      <div @click="openGitHub" class="author">
-        <i class="el-icon-location-outline">yuleGH</i>
-        <img alt="@yuleGH" class="author-img" src="https://avatars2.githubusercontent.com/u/31040588?s=40&amp;v=4">
-      </div>
-    </el-header>
 
-    <el-container>
-      <el-aside class="left">
-        <el-menu :default-active="activeIndex">
-          <el-menu-item index="1" @click="open(aboutMeUrl)"><i class="el-icon-service"></i>关于我</el-menu-item>
-          <el-submenu index="firstMenu.id" v-for="firstMenu in menus" :key="firstMenu.id">
-            <template slot="title"><i :class="firstMenu.iconClass"></i>{{ firstMenu.name }}</template>
-            <el-menu-item-group v-for="secondMenu in firstMenu.children" :key="secondMenu.id">
-              <template slot="title">{{ secondMenu.name }}</template>
-              <el-menu-item v-for="thirdMenu in secondMenu.children" index="thirdMenu.id" :key="thirdMenu.id" @click="open(thirdMenu.url)">{{ thirdMenu.name }}</el-menu-item>
-            </el-menu-item-group>
-          </el-submenu>
-      </el-aside>
+<body><!-- <body>标签是网页主体部分，网页显示的内容都放在<body>标签内 -->
 
-      <el-main class="right">
-          <iframe style="width:100%; height:100%; border: 0;" :src="iframeUrl"></iframe>
-      </el-main>
+<h1 align="center">简单的文字处理(这是一级标题)</h1>
+<p><u><i>有人说，“努力”与“拥有”是人生一左一右的两道风景。但我以为，人生最美最不能逊色的风景应该是努力。努力是人生的一种精神状态，是对生命的一种赤子之情。努力是拥有之母，拥有是努力之子。</i></u>一心努力可谓条条大路通罗马，只想获取可谓道路逼仄，天地窄小。
+</p>
 
-    </el-container>
-  </el-container>
-</div>
-<!-- 引入组件库 -->
-<script type="text/javascript" src="lib/vue.js"></script>
-<script type="text/javascript" src="lib/elementui/index.js"></script>
+<p align="center"><b>与其规定自己一定要成为一个什么样的人物，获得什么东西，不如磨练自己做一个努力的人。志向再高，没有努力，志向终难坚守；没有远大目标，因为努力，终会找到奋斗的方向。做一个努力的人，可以说是人生最切实际的目标，是人生最大的境界。</b>
+</p>
 
-<script type="text/javascript">
-    new Vue({
-        el: "#app",
-        data: {
-          activeIndex : "1",
-          aboutMeUrl : "aboutme.html",
-          iframeUrl : "aboutme.html",
+<p align="right"><font color="blue" size="5" face="楷体">许多人因为给自己定的目标太高太功利，因为难以成功而变得灰头土脸，最终灰心失望。究其原因，往往就是因为太关注拥有，而忽略做一个努力的人。对于今天的孩子们，如果只关注他们将来该做个什么样的人物，不把意志品质作为一个做人的目标提出来，最终我们只能培养出狭隘、自私、脆弱和境界不高的人。遗憾的是，我们在这方面做得并不尽如人意。</font>
+</p>
 
-          menus : [
-            {
-               name: "dialog",
-               id: "dialog",
-               iconClass: "el-icon-message",
-               children:[
-                 {
-                   name: "Notification 通知",
-                   id: "notification",
-                   children: [
-                     {name: "demo1", id: "noti-demo1", url: "dialog/notification/notification.html"}
-                   ]
-                 }
-               ]
-            }
-          ]
-        },
-        methods: {
-          open(url){
-            this.iframeUrl = url;
-          },
-          openGitHub(){
-            window.open("https://github.com/yuleGH", "_blank");
-          }
-        }
-    });
-</script>
+<hr/ color="red" size="5">
+
+<pre>
+        假如生活欺骗了你
+            假如生活欺骗了你，
+                不要悲伤，不要心急！
+                    忧郁的日子里须要镇静：
+                        相信吧，快乐的日子将会来临！
+                    心儿永远向往着未来；
+                现在却常是忧郁。
+            一切都是瞬息，一切都将会过去；
+        而那过去了的，就会成为亲切的怀恋。
+    </pre>
+
+<hr/ color="yellow" width="75%" size="8">
+
+<center>
+    <p><a href="#">这是一个链接</a></p>
+    <br />
+    <p></p><img src="" alt="这是一个图片" /></p>
+    
+    <h2>无列表练习</h2>
+    <ul type="square">
+        <li>语文</li>
+        <li>数学</li>
+        <li>英语</li>
+    </ul>
+
+    <h2>有序列表练习</h2>
+    <ol type="I">
+        <li>语文</li>
+        <li>数学</li>
+        <li>英语</li>
+    </ol>
+
+    <h2>自定义列表</h2>
+    <dl>
+        <dt>计科班</dt>
+        <dd>张三</dd>
+        <dd>李四</dd>
+        <dt>信息班</dt>
+        <dd>小李</dd>
+        <dd>小张</dd>
+    </dl>
+
+    <h2>表格要小心</h2>
+
+    <hr color="red" width="50%"/>
+
+
+    <table border="2">
+        <tr>
+            <th colspan="7">大学课程表</th>
+        </tr>
+
+        <tr>
+            <th></th>
+            <th></th>
+            <th>星期一</th>
+            <th>星期二</th>
+            <th>星期三</th>
+            <th>星期四</th>
+            <th>星期五</th>
+        </tr>
+
+        <tr>
+            <td rowspan="4">上午</td>
+            <td>8:00-9:00</td>
+            <td>赵一</td>
+            <td>钱二</td>
+            <td>孙三</td>
+            <td>李四</td>
+            <td>周五</td>
+        </tr>
+
+        <tr>
+            <td>9:00-10:00</td>
+            <td>吴一</td>
+            <td>郑二</td>
+            <td>王三</td>
+            <td>冯四</td>
+            <td>陈五</td>
+        </tr>
+
+        <tr>
+            <td>10:00-11:00</td>
+            <td>吴一</td>
+            <td>郑二</td>
+            <td>王三</td>
+            <td>冯四</td>
+            <td>陈五</td>
+        </tr>
+
+        <tr>
+            <td>11:00-12:00</td>
+            <td>吴一</td>
+            <td>郑二</td>
+            <td>王三</td>
+            <td>冯四</td>
+            <td>陈五</td>
+        </tr>
+
+        <tr>
+            <td colspan="7">
+                <table align="center" border="1px">
+                    <caption>嵌套就是这么皮</caption>
+                    <tr>
+                        <th>2:00-3:00</th>
+                        <th>3:00-4:00</th>
+                        <th>4:00-5:00</th>
+                    </tr>
+
+                    <tr>
+                        <td align="center" width="100">数学</td>
+                        <td align="center" width="100">语文</td>
+                        <td align="center" width="100">英语</td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+
+    <form action="" method="get" align="center">
+        <h3 align="center">注册</h3>
+        <p>
+            <label for="nickname">用户名:</label>
+            <input type="text" id="nickname" size="15" required name="nickname1" value="LZH">
+            <font color="red">*</font>
+        </p>
+        <p>
+            <label for="pw1">密&nbsp;&nbsp;码:</label>
+            <input type="password" id="pw1" size="15" required placeholder="6-15位">
+            <font color="red">*</font>
+        </p>
+        <p>
+            <label>确认密码:</label>
+            <input type="password" id="pw2" size="15" required placeholder="与上面相同">
+            <font color="red">*</font>
+        </p>
+        <p>
+            性别:
+            <input type="radio" name="sex" value="male" checked="checked" id="male">
+            <label for="male">男</label>
+            <input type="radio" name="sex" value="female" id="female">
+            <label for="female">女</label>
+        </p>
+        <p>
+            所在地:
+            <select name="area" title="籍贯">
+                <option>请选择</option>
+                <option selected="">浙江</option>
+                <option>河南</option>
+                <option>北京</option>
+                <option>湖南</option>
+                <option>湖北</option>
+            </select>
+        </p>
+        <p>
+            爱好:
+            <input type="checkbox" title="">看书
+            <input type="checkbox" title="">上网
+            <input type="checkbox" title="">游戏
+            <input type="checkbox" checked="" title="">运动
+            <input type="checkbox" title="">游泳
+        </p>
+        <p>
+            <label for="email">邮&nbsp;&nbsp;箱:</label>
+            <input type="email" required id="email">
+            <font color="red">*</font>
+        </p>
+        <p>
+            个人简介：
+                <textarea rows="5" cols="55" title=""></textarea>
+        </p>
+        <p>
+            说明:
+            <font color="red">*</font>号为必填项
+        </p>
+        <p align="center">
+            <input type="submit" value="注册">
+            <input type="button" value="取消">
+        </p>
+    </form>
+</center>
+
 
 </body>
-
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
